@@ -1,0 +1,27 @@
+{
+  "timestamp": "2026-06-09T12:28:47.337953",
+  "checkpoint": "experiments\\greg_retina_output_v3\\checkpoints\\best_model.pt",
+  "limit": 10,
+  "gradcam_samples": 2,
+  "target_layer": "Conv2d",
+  "items": [
+    {
+      "k": 1,
+      "path": "experiments\\aptos\\train_images\\0024cdab0c1e.png",
+      "y_true": 0,
+      "y_pred": 1,
+      "class_true": "Normal",
+      "class_pred": "Suspeito",
+      "out_path": "experiments\\greg_retina_output_v3\\plots_v3\\gradcam_01_true0_pred1.png"
+    },
+    {
+      "k": 2,
+      "path": "experiments\\aptos\\train_images\\0083ee8054ee.png",
+      "y_true": 2,
+      "y_pred": 2,
+      "class_true": "Encaminha",
+      "class_pred": "Encaminha",
+      "out_path": "experiments\\greg_retina_output_v3\\plots_v3\\gradcam_02_true2_pred2.png"
+    }
+  ]
+}

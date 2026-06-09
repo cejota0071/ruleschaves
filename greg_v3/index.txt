@@ -1,0 +1,8 @@
+Training report generated.
+Log: results_v3\greg_v3_20251222_235207_log.json
+Max epoch used: 98
+CSV: results_v3\analysis\greg_v3_20251222_235207_epoch98\metrics_epochs.csv
+JSON: results_v3\analysis\greg_v3_20251222_235207_epoch98\metrics_epochs.json
+Summary: results_v3\analysis\greg_v3_20251222_235207_epoch98\summary.json
+Report HTML: results_v3\analysis\greg_v3_20251222_235207_epoch98\report.html
+Plots dir: results_v3\analysis\greg_v3_20251222_235207_epoch98\plots

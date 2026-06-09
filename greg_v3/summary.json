@@ -1,0 +1,32 @@
+{
+  "total_rows": 50,
+  "total_epochs": 98,
+  "max_epoch_used": 98,
+  "best_accuracy": 92.05,
+  "best_accuracy_epoch": 98,
+  "final_accuracy_at_epoch_max": 92.05,
+  "best_test_loss": 0.2523617509611045,
+  "best_test_loss_epoch": 98,
+  "final_test_loss_at_epoch_max": 0.2523617509611045,
+  "generalization_gap_final": 0.07125753988633518,
+  "generalization_gap_mean": -0.09567736349529797,
+  "generalization_gap_std": 0.12429565687516012,
+  "epoch98": {
+    "epoch": 98,
+    "train_loss": 0.18110421107476934,
+    "test_loss": 0.2523617509611045,
+    "accuracy": 92.05,
+    "delta": 127.52179681166017,
+    "lr": 0.00125
+  },
+  "delta_zone_counts": {
+    "Fora": 18,
+    "Alerta": 14,
+    "Critica": 13,
+    "Otima": 5
+  },
+  "corr_delta_vs_test_loss": -0.2661578248611766,
+  "corr_delta_vs_train_loss": -0.264085281676745,
+  "corr_lr_vs_accuracy": -0.34285370125779985,
+  "plateau_epoch_estimate_test_loss": null
+}

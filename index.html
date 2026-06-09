@@ -1,634 +1,926 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO Otimizado para Uberlândia e Conversão -->
-    <title>Minha Casa Minha Vida Uberlândia - Financie seu Apartamento | (34) 99350-6019</title>
-    <meta name="description" content="Garanta seu imóvel próprio em Uberlândia pelo programa Minha Casa Minha Vida. Consultoria especializada, do documento às chaves. Ligue agora: (34) 99350-6019.">
-    <meta name="keywords" content="Minha Casa Minha Vida Uberlândia, Financiamento Caixa Uberlândia, Apartamento Alto Padrão Uberlândia, Casa Própria Triângulo Mineiro, Rules Chaves">
-    <meta name="author" content="Regras Chaves">
-    <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#0f172a">
-
-    <!-- Schema.org JSON-LD para Negócio Local (Essencial para Google Maps/Buscas Locais) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "RealEstateAgent",
-      "name": "Regras Chaves - Minha Casa Minha Vida Uberlândia",
-      "image": "https://picsum.photos/seed/regraschaves/1200/630",
-      "telephone": "+5534993506019",
-      "priceRange": "$$",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Uberlândia",
-        "addressRegion": "MG",
-        "addressCountry": "BR"
-      },
-      "description": "Especialistas em aprovação de crédito habitacional e cadastro Minha Casa Minha Vida em Uberlândia."
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rules Chaves — Pesquisador em Deep Learning</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,600;1,300&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ── TOKENS ── */
+    :root {
+      --bg:        #0d0f11;
+      --surface:   #141618;
+      --border:    #242628;
+      --muted:     #3a3d42;
+      --text-dim:  #6b7280;
+      --text:      #c9cdd4;
+      --text-hi:   #e8eaed;
+      --accent:    #4ade80;   /* bio-green — retinal scan aesthetic */
+      --accent2:   #22d3ee;   /* cyan — CIFAR data */
+      --accent3:   #f59e0b;   /* amber — GREG metric */
+      --danger:    #f87171;
+      --font-mono: 'IBM Plex Mono', monospace;
+      --font-body: 'IBM Plex Sans', sans-serif;
+      --font-disp: 'Cormorant Garamond', serif;
+      --radius:    4px;
+      --max:       1080px;
     }
-    </script>
 
-    <style>
-        /* --- RESET & VARIÁVEIS --- */
-        :root {
-            --primary: #0f172a; /* Azul Profundo - Seriedade */
-            --primary-light: #1e293b;
-            --accent: #10b981; /* Verde Vibrante - Venda/Ação */
-            --accent-hover: #059669;
-            --gold: #fbbf24; /* Dourado - Diferencial/Chaves */
-            --text-main: #1e293b;
-            --text-light: #475569;
-            --bg-light: #f1f5f9;
-            --white: #ffffff;
-            --shadow-card: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            --radius: 12px;
-            --container-width: 1280px;
-        }
+    /* ── RESET ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    /* ── SCANLINE OVERLAY (signature element) ── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0,0,0,.08) 2px,
+        rgba(0,0,0,.08) 4px
+      );
+      pointer-events: none;
+      z-index: 9999;
+    }
 
-        html {
-            scroll-behavior: smooth;
-        }
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      border-bottom: 1px solid var(--border);
+      background: rgba(13,15,17,.92);
+      backdrop-filter: blur(12px);
+    }
+    .nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--accent);
+      letter-spacing: .05em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--text-hi); }
 
-        body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            color: var(--text-main);
-            background-color: var(--white);
-            line-height: 1.6;
-        }
+    /* ── SECTIONS WRAPPER ── */
+    section {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 96px 24px;
+    }
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-family: var(--font-disp);
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 400;
+      color: var(--text-hi);
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .section-desc {
+      max-width: 600px;
+      color: var(--text-dim);
+      font-weight: 300;
+      margin-bottom: 48px;
+    }
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      max-width: var(--max);
+      margin: 0 auto;
+    }
 
-        /* --- UTILITÁRIOS --- */
-        .container {
-            width: 100%;
-            max-width: var(--container-width);
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+    /* ── HERO ── */
+    #hero {
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 24px;
+    }
+    .hero-name {
+      font-family: var(--font-disp);
+      font-size: clamp(52px, 9vw, 110px);
+      font-weight: 600;
+      color: var(--text-hi);
+      line-height: .95;
+      letter-spacing: -.01em;
+    }
+    .hero-name span { color: var(--accent); }
+    .hero-sub {
+      margin-top: 28px;
+      max-width: 520px;
+      font-weight: 300;
+      font-size: 16px;
+      color: var(--text-dim);
+      line-height: 1.8;
+    }
+    .hero-cta-row {
+      margin-top: 40px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 12px 24px;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: all .2s;
+      display: inline-block;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #0d0f11;
+      border: 1px solid var(--accent);
+    }
+    .btn-primary:hover { background: #86efac; border-color: #86efac; }
+    .btn-ghost {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-ghost:hover { border-color: var(--text-dim); color: var(--text-hi); }
 
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 16px 32px;
-            border-radius: 50px; /* Botões mais arredondados para modernidade */
-            text-decoration: none;
-            font-weight: 700;
-            text-align: center;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
-            font-size: 1.1rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+    .hero-stats {
+      margin-top: 64px;
+      display: flex;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .hero-stat-value {
+      font-family: var(--font-mono);
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--text-hi);
+    }
+    .hero-stat-value span { color: var(--accent); }
+    .hero-stat-label {
+      font-size: 11px;
+      color: var(--text-dim);
+      margin-top: 4px;
+      letter-spacing: .04em;
+    }
 
-        .btn-primary {
-            background-color: var(--accent);
-            color: var(--white);
-            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
-        }
+    /* ── ABOUT GREG ── */
+    #greg {
+      background: var(--surface);
+      max-width: 100%;
+      padding: 96px 0;
+    }
+    #greg .inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .greg-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .greg-formula {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent3);
+      border-radius: var(--radius);
+      padding: 32px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--text);
+      line-height: 2;
+    }
+    .greg-formula .comment { color: var(--text-dim); }
+    .greg-formula .kw { color: var(--accent3); font-weight: 600; }
+    .greg-formula .val { color: var(--accent2); }
+    .greg-pillars {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .pillar {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      background: var(--bg);
+      transition: border-color .2s;
+    }
+    .pillar:hover { border-color: var(--muted); }
+    .pillar-title {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--accent3);
+      margin-bottom: 6px;
+    }
+    .pillar p { font-size: 13px; color: var(--text-dim); line-height: 1.6; }
 
-        .btn-primary:hover {
-            background-color: var(--accent-hover);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.5);
-        }
+    /* ── CIFAR-10 ── */
+    #cifar { }
+    .metrics-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+    .metric-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      text-align: center;
+    }
+    .metric-card .val {
+      font-family: var(--font-mono);
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--accent2);
+    }
+    .metric-card .lbl {
+      font-size: 11px;
+      color: var(--text-dim);
+      margin-top: 4px;
+      letter-spacing: .04em;
+    }
+    .plots-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    .plot-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .plot-placeholder {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: var(--muted);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: .08em;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .plot-placeholder::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: 
+        linear-gradient(90deg, transparent 49%, var(--border) 49%, var(--border) 51%, transparent 51%),
+        linear-gradient(0deg, transparent 49%, var(--border) 49%, var(--border) 51%, transparent 51%);
+      background-size: 40px 40px;
+      opacity: .3;
+    }
+    .plot-placeholder svg { z-index: 1; opacity: .4; }
+    .plot-placeholder span { z-index: 1; }
+    .plot-real {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      border-bottom: 1px solid var(--border);
+    }
+    .plot-footer {
+      padding: 12px 16px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-dim);
+    }
 
-        .btn-whatsapp {
-            background-color: #25d366;
-            color: white;
-        }
-        
-        .btn-whatsapp:hover {
-            background-color: #128C7E;
-        }
+    /* ── RETINOPATHY ── */
+    #retinopathy {
+      background: var(--surface);
+      max-width: 100%;
+      padding: 96px 0;
+    }
+    #retinopathy .inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .retino-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+    }
+    .retino-metrics {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .metric-bar {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+    }
+    .metric-bar-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    .metric-bar-name {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--text-dim);
+    }
+    .metric-bar-val {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent);
+    }
+    .bar-track {
+      height: 4px;
+      background: var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 2px;
+      transition: width 1s ease;
+    }
+    .bar-fill.cyan { background: var(--accent2); }
+    .bar-fill.amber { background: var(--accent3); }
+    .retino-info h3 {
+      font-family: var(--font-disp);
+      font-size: 26px;
+      font-weight: 400;
+      color: var(--text-hi);
+      margin-bottom: 16px;
+    }
+    .retino-info p {
+      color: var(--text-dim);
+      font-size: 14px;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 24px;
+    }
+    .tag {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 2px;
+      border: 1px solid var(--border);
+      color: var(--text-dim);
+    }
+    .tag.green { border-color: var(--accent); color: var(--accent); }
+    .tag.cyan  { border-color: var(--accent2); color: var(--accent2); }
+    .tag.amber { border-color: var(--accent3); color: var(--accent3); }
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 3.5rem;
-        }
+    /* ── CONTACT ── */
+    #contact { }
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .contact-left p {
+      color: var(--text-dim);
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 1.9;
+      margin-bottom: 24px;
+    }
+    .contact-channels {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .channel {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 18px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-dim);
+      transition: all .2s;
+    }
+    .channel:hover { border-color: var(--accent); color: var(--text-hi); }
+    .channel-icon { color: var(--accent); font-size: 14px; }
 
-        .section-title h2 {
-            font-size: 2.25rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-weight: 800;
-        }
+    /* Contact form */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .field label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 6px;
+    }
+    .field input,
+    .field textarea,
+    .field select {
+      width: 100%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 14px;
+      padding: 12px 14px;
+      outline: none;
+      transition: border-color .2s;
+      -webkit-appearance: none;
+    }
+    .field input:focus,
+    .field textarea:focus,
+    .field select:focus { border-color: var(--accent); }
+    .field textarea { resize: vertical; min-height: 120px; }
+    .field select option { background: var(--surface); }
+    .form-submit {
+      margin-top: 4px;
+      font-size: 12px;
+      padding: 14px 28px;
+      width: 100%;
+    }
 
-        .section-title p {
-            font-size: 1.125rem;
-            color: var(--text-light);
-            max-width: 600px;
-            margin: 0 auto;
-        }
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 24px;
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    footer p {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-dim);
+    }
+    footer span { color: var(--accent); }
 
-        /* --- HEADER --- */
-        header {
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            color: var(--primary);
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid #e2e8f0;
-        }
+    /* ── TERMINAL BLINK ── */
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+    .cursor {
+      display: inline-block;
+      width: 2px; height: 1em;
+      background: var(--accent);
+      vertical-align: text-bottom;
+      animation: blink 1s step-end infinite;
+      margin-left: 2px;
+    }
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--primary);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .logo span {
-            color: var(--accent);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: var(--text-main);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-        
-        .header-phone {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 700;
-            color: var(--primary);
-            background: #f8fafc;
-            padding: 8px 16px;
-            border-radius: 20px;
-            border: 1px solid #e2e8f0;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--primary);
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* --- HERO SECTION --- */
-        .hero {
-            /* Substitua a URL abaixo por uma foto real de um prédio bonito em Uberlândia */
-            background: linear-gradient(90deg, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.7) 100%), 
-                        url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
-            min-height: 90vh; /* Ocupa quase toda a tela */
-            display: flex;
-            align-items: center;
-            color: var(--white);
-            padding-top: 80px;
-        }
-
-        .hero-content {
-            max-width: 700px;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            font-weight: 800;
-            letter-spacing: -1px;
-        }
-
-        .hero h1 span {
-            color: var(--accent);
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            margin-bottom: 2.5rem;
-            color: #e2e8f0;
-            font-weight: 400;
-        }
-        
-        .hero-badges {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-        
-        .badge {
-            background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.2);
-            padding: 6px 12px;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        /* --- VANTAGENS (Visual Moderno) --- */
-        .features {
-            padding: 6rem 0;
-            background-color: var(--bg-light);
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .feature-card {
-            background: var(--white);
-            padding: 2.5rem;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-card);
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
-            border-top: 4px solid var(--accent);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-
-        /* --- DOCUMENTAÇÃO (Clean List) --- */
-        .docs {
-            padding: 6rem 0;
-        }
-
-        .docs-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .doc-img-wrapper {
-            position: relative;
-        }
-        
-        .doc-img-wrapper img {
-            width: 100%;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-card);
-        }
-
-        .check-list {
-            list-style: none;
-            margin-top: 1.5rem;
-        }
-
-        .check-list li {
-            padding: 12px 0;
-            border-bottom: 1px solid #f1f5f9;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 1.1rem;
-        }
-
-        .check-icon {
-            color: var(--accent);
-            background: #ecfdf5;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 14px;
-        }
-
-        /* --- FORMULÁRIO DE LEAD (Foco em Contato) --- */
-        .contact-section {
-            padding: 6rem 0;
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            color: white;
-        }
-
-        .contact-wrapper {
-            background: var(--white);
-            border-radius: 20px;
-            padding: 3rem;
-            max-width: 900px;
-            margin: 0 auto;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            color: var(--text-main);
-        }
-
-        .form-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .form-text h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-        
-        .form-text .phone-big {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--accent);
-            display: block;
-            margin: 1rem 0;
-        }
-
-        .lead-form input, .lead-form select {
-            width: 100%;
-            padding: 14px;
-            border: 1px solid #cbd5e1;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            font-size: 1rem;
-            font-family: inherit;
-        }
-
-        .lead-form input:focus {
-            outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            background-color: #0f172a;
-            color: #94a3b8;
-            padding: 3rem 0;
-            text-align: center;
-            border-top: 1px solid #1e293b;
-            font-size: 0.9rem;
-        }
-
-        /* --- FLOAT WHATSAPP --- */
-        .float-whatsapp {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25d366;
-            color: #FFF;
-            width: 65px;
-            height: 65px;
-            border-radius: 50%;
-            text-align: center;
-            font-size: 35px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: all 0.3s;
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-        }
-
-        .float-whatsapp:hover {
-            transform: scale(1.1);
-        }
-
-        /* --- RESPONSIVO --- */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            .nav-links { display: none; } /* Simplificado para demo, ideal seria menu hambúrguer JS */
-            .header-phone { display: none; }
-            .mobile-menu-btn { display: block; }
-            .docs-layout, .form-grid { grid-template-columns: 1fr; }
-            .contact-wrapper { padding: 1.5rem; }
-        }
-    </style>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-T3JX6EY0EM"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-T3JX6EY0EM');
-</script>
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .metrics-row { grid-template-columns: repeat(2, 1fr); }
+      .plots-grid  { grid-template-columns: 1fr; }
+      .greg-grid   { grid-template-columns: 1fr; }
+      .retino-grid { grid-template-columns: 1fr; }
+      .contact-layout { grid-template-columns: 1fr; gap: 40px; }
+      .hero-stats  { gap: 32px; }
+      .nav-links   { display: none; }
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <nav>
-                <a href="#" class="logo">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--gold);"><path d="m21 2-9 6-9-6-3 10 10 13 10-13-3-10Z"/><path d="M11 11.88 8.12 9"/></svg>
-                    Regras<span>Chaves</span>
-                </a>
-                
-                <ul class="nav-links">
-                    <li><a href="#beneficios">Vantagens</a></li>
-                    <li><a href="#documentos">Documentos</a></li>
-                    <li><a href="#contato">Falar com Especialista</a></li>
-                </ul>
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <span class="nav-logo">rules_chaves.research</span>
+    <ul class="nav-links">
+      <li><a href="#greg">GREG</a></li>
+      <li><a href="#cifar">CIFAR-10</a></li>
+      <li><a href="#retinopathy">Retinopatia</a></li>
+      <li><a href="#contact">Contato</a></li>
+    </ul>
+  </div>
+</nav>
 
-                <div class="header-phone">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                    (34) 9 3505-6019
-                </div>
+<!-- HERO -->
+<section id="hero">
+  <p class="hero-eyebrow">Deep Learning · Pesquisa Independente · Uberlândia, MG</p>
+  <h1 class="hero-name">Rules<br><span>Chaves</span></h1>
+  <p class="hero-sub">
+    Desenvolvo sistemas de redes neurais do zero — do controle adaptativo de treinamento
+    à aplicação clínica em triagem de retinopatia diabética.
+    Resultados reais, código aberto, impacto mensurável.<span class="cursor"></span>
+  </p>
+  <div class="hero-cta-row">
+    <a href="#contact" class="btn btn-primary">Solicitar Demonstração</a>
+    <a href="#greg" class="btn btn-ghost">Ver Metodologia</a>
+  </div>
+  <div class="hero-stats">
+    <div>
+      <div class="hero-stat-value">92<span>%</span></div>
+      <div class="hero-stat-label">Top-1 Acc · CIFAR-10</div>
+    </div>
+    <div>
+      <div class="hero-stat-value" style="color:var(--accent)">~74<span style="color:var(--accent)">%</span></div>
+      <div class="hero-stat-label">Redução de ECE (calibração)</div>
+    </div>
+    <div>
+      <div class="hero-stat-value" style="color:var(--accent3)">EfficientNet</div>
+      <div class="hero-stat-label">B3 + CBAM · APTOS 2019</div>
+    </div>
+  </div>
+</section>
+<hr class="divider" />
 
-                <button class="mobile-menu-btn" onclick="alert('Use o botão do WhatsApp abaixo para contato rápido!')">☰</button>
-            </nav>
+<!-- GREG METHOD -->
+<div id="greg">
+  <div class="inner">
+    <p class="section-label">Metodologia</p>
+    <h2 class="section-title">Eficiência GREG</h2>
+    <p class="section-desc">
+      GREG é um controlador adaptativo de treinamento inspirado em PID — ele monitora
+      a relação entre ganho de acurácia e custo de épocas em tempo real, ajustando
+      learning rate, paciência e lógica de parada de forma autônoma.
+    </p>
+    <div class="greg-grid">
+      <div>
+        <div class="greg-formula">
+          <div class="comment"># Métrica de eficiência GREG</div>
+          <br>
+          δ = (g² − a²) / (a × Δa)
+          <br><br>
+          <div class="comment"># onde:</div>
+          <div><span class="kw">g</span>  = ganho de acurácia atual</div>
+          <div><span class="kw">a</span>  = acurácia corrente</div>
+          <div><span class="kw">Δa</span> = variação entre épocas</div>
+          <br>
+          <div class="comment"># Lógica de controle</div>
+          <div><span class="kw">if</span> δ &gt; <span class="val">threshold</span>:  defender()</div>
+          <div><span class="kw">if</span> δ &lt; <span class="val">lower_bound</span>: reduce_lr()</div>
+          <div><span class="kw">if</span> plateau:          early_stop()</div>
         </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-badges">
-                    <span class="badge">Uberlândia e Região</span>
-                    <span class="badge">Aprovação Garantida*</span>
-                </div>
-                <h1>Sua Casa Própria em <br><span>Uberlândia</span> Começa Aqui.</h1>
-                <p>Não perca tempo com filas e burocracia. Especialistas no Minha Casa Minha Vida cuidam de todo o processo para você. Do cadastro à entrega das chaves.</p>
-                
-                <!-- Botão chamativo -->
-                <a href="https://wa.me/5534993506019?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20saber%20se%20me%20enquadro%20no%20Minha%20Casa%20Minha%20Vida." class="btn btn-whatsapp" target="_blank">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-                    Quero me Cadastrar Agora
-                </a>
-            </div>
+      </div>
+      <div class="greg-pillars">
+        <div class="pillar">
+          <div class="pillar-title">Controle Proporcional</div>
+          <p>δ mede a eficiência marginal do treinamento — quanto ganho de acurácia se obtém por unidade de custo. Quando δ cai abaixo de um limiar, o controlador age.</p>
         </div>
-    </section>
-
-    <!-- Benefícios -->
-    <section id="beneficios" class="features">
-        <div class="container">
-            <div class="section-title">
-                <h2>Por que contratar a Regras Chaves?</h2>
-                <p>Compramos a briga pela burocracia para que você só tenha o trabalho de escolher a cor da parede.</p>
-            </div>
-            
-            <div class="features-grid">
-                <div class="feature-card">
-                    <h3>⚡ Consultoria Express</h3>
-                    <p>Análise rápida de seu perfil. Sabemos exatamente qual grupo você se encaixa e qual o valor máximo de financiamento possível.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>🛡️ Zero Dor de Cabeça</h3>
-                    <p>Erros na documentação causam negação. Nós revisamos tudo, preenchemos as fichas da Caixa e acompanhamos o processo passo a passo.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>🏠 Imóveis em Uberlândia</h3>
-                    <p>Acesso aos melhores lançamentos do programa na cidade, do popular ao alto padrão, com localização privilegiada.</p>
-                </div>
-            </div>
+        <div class="pillar">
+          <div class="pillar-title">Lógica Defender</div>
+          <p>Em vez de parar abruptamente, GREG "defende" o checkpoint ótimo: congela o melhor estado e reduz o LR gradualmente antes de encerrar o treinamento.</p>
         </div>
-    </section>
-
-    <!-- Documentação -->
-    <section id="documentos" class="docs">
-        <div class="container">
-            <div class="docs-layout">
-                <div class="doc-img-wrapper">
-                    <!-- Imagem de uma pessoa feliz com documentos/casa -->
-                    <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Família analisando contrato da casa própria" width="600" height="500">
-                </div>
-                <div class="doc-content">
-                    <h2 style="font-size: 2.5rem; margin-bottom: 1rem; color: var(--primary);">O que preciso para começar?</h2>
-                    <p style="color: var(--text-light); margin-bottom: 2rem;">É simples! Separe esses documentos básicos e envie pelo WhatsApp. Nós cuidamos do resto.</p>
-                    
-                    <ul class="check-list">
-                        <li>
-                            <div class="check-icon">✓</div>
-                            RG e CPF (todos os membros da família)
-                        </li>
-                        <li>
-                            <div class="check-icon">✓</div>
-                            Comprovante de Renda (Holerite ou Extrato)
-                        </li>
-                        <li>
-                            <div class="check-icon">✓</div>
-                            Certidão de Casamento ou Nascimento
-                        </li>
-                        <li>
-                            <div class="check-icon">✓</div>
-                            Declaração de Imposto de Renda (caso tenha)
-                        </li>
-                    </ul>
-
-                    <a href="https://wa.me/5534993506019?text=Tenho%20os%20documentos%20prontos.%20Pode%20me%20ajudar?" class="btn btn-outline" style="margin-top: 2rem; border: 2px solid var(--primary); color: var(--primary);">Enviar Documentos Agora</a>
-                </div>
-            </div>
+        <div class="pillar">
+          <div class="pillar-title">Independente de Dataset</div>
+          <p>A mesma lógica foi aplicada com sucesso em CIFAR-10 (visão geral) e APTOS 2019 (imagens médicas) sem reajuste manual de hiperparâmetros entre domínios.</p>
         </div>
-    </section>
-
-    <!-- Seção de Contato/CTA -->
-    <section id="contato" class="contact-section">
-        <div class="container">
-            <div class="contact-wrapper">
-                <div class="form-grid">
-                    <div class="form-text">
-                        <h2>Vamos realizar seu sonho?</h2>
-                        <p>Preencha seus dados e eu entro em contato imediatamente. Não deixe seu financiamento para depois.</p>
-                        <span class="phone-big">(34) 9 3505-6019</span>
-                        <p style="font-size: 0.9rem; color: #64748b;">Atendimento WhatsApp em horário comercial.</p>
-                    </div>
-                    <div class="lead-form">
-                        <form onsubmit="redirectToWhatsapp(event)">
-                            <input type="text" id="name" placeholder="Seu Nome Completo" required>
-                            <input type="tel" id="phone" placeholder="Seu Telefone" required>
-                            <select id="income">
-                                <option value="" disabled selected>Sua Renda Familiar Aproximada</option>
-                                <option value="Ate 2 mil">Até R$ 2.000,00</option>
-                                <option value="2 a 4 mil">R$ 2.000,00 a R$ 4.000,00</option>
-                                <option value="4 a 8 mil">R$ 4.000,00 a R$ 8.000,00</option>
-                                <option value="Acima de 8 mil">Acima de R$ 8.000,00</option>
-                            </select>
-                            <button type="submit" class="btn btn-primary" style="width: 100%;">Solicitar Contato</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
+        <div class="pillar">
+          <div class="pillar-title">Framing Acadêmico</div>
+          <p>GREG pode ser descrito como um controlador PID discreto sobre o espaço de treinamento — alinhado com literatura de CLR (Smith, 2017) e curriculum learning.</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</div>
+<hr class="divider" />
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <h3>Regras Chaves</h3>
-            <p>Especialistas em Financiamento Habitacional em Uberlândia</p>
-            <div style="margin: 1.5rem 0;">
-                <a href="#" style="color: white; margin: 0 10px;">Início</a>
-                <a href="termos.html" style="color: white; margin: 0 10px;">Termos</a>
-                <a href="privacidade.html" style="color: white; margin: 0 10px;">Privacidade</a>
-            </div>
-            <p>&copy; 2026 Regras Chaves. Todos os direitos reservados.</p>
+<!-- CIFAR-10 -->
+<section id="cifar">
+  <p class="section-label">Experimento 01</p>
+  <h2 class="section-title">CIFAR-10<br>Classificação de Imagens</h2>
+  <p class="section-desc">
+    Rede neural treinada do zero com controle autônomo GREG.
+    Checkpoints ep97–ep99 analisados com calibração de confiança via temperature scaling.
+  </p>
+
+  <div class="metrics-row">
+    <div class="metric-card">
+      <div class="val">92%</div>
+      <div class="lbl">Top-1 Accuracy</div>
+    </div>
+    <div class="metric-card">
+      <div class="val" style="color:var(--accent)">−74%</div>
+      <div class="lbl">Redução ECE</div>
+    </div>
+    <div class="metric-card">
+      <div class="val" style="color:var(--accent3)">ep99</div>
+      <div class="lbl">Checkpoint Final</div>
+    </div>
+    <div class="metric-card">
+      <div class="val" style="color:var(--danger)">T=1.4</div>
+      <div class="lbl">Temperatura Ótima</div>
+    </div>
+  </div>
+
+  <div class="plots-grid">
+    <!-- Substitua o bloco plot-placeholder pelo <img> correspondente -->
+    <div class="plot-card">
+      <div class="plot-placeholder">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        <span>TRAINING LOSS / ACCURACY CURVE</span>
+        <span style="font-size:9px;color:var(--muted)"><img src="greg_v3/plots/loss_train_vs_test.png" alt="Training Loss / Accuracy Curve" /></span>
+      </div>
+      <div class="plot-footer">Curvas de treinamento — Loss &amp; Accuracy vs Epoch</div>
+    </div>
+    <div class="plot-card">
+      <div class="plot-placeholder">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        <span>CONFUSION MATRIX</span>
+        <span style="font-size:9px;color:var(--muted)"><img src="ep99_analysis/confusion_matrix.png"></span>
+      </div>
+      <div class="plot-footer">Matriz de confusão — 10 classes</div>
+    </div>
+    <div class="plot-card">
+      <div class="plot-placeholder">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-6"/></svg>
+        <span>CALIBRATION DIAGRAM</span>
+        <span style="font-size:9px;color:var(--muted)"><img src="ep98_analysis/calibration_comparison.png"</span>
+      </div>
+      <div class="plot-footer">Reliability diagram — antes e depois de temperature scaling</div>
+    </div>
+    <div class="plot-card">
+      <div class="plot-placeholder">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        <span>GREG δ EFFICIENCY CURVE</span>
+        <span style="font-size:9px;color:var(--muted)"><img src="greg_v3/plots/accuracy_curve.png"></span>
+      </div>
+      <div class="plot-footer">Evolução da métrica δ ao longo das épocas</div>
+    </div>
+  </div>
+</section>
+<hr class="divider" />
+
+<!-- RETINOPATHY -->
+<div id="retinopathy">
+  <div class="inner">
+    <p class="section-label">Experimento 02 — Aplicação Clínica</p>
+    <h2 class="section-title">Retinopatia<br>Diabética</h2>
+    <p class="section-desc">
+      Sistema de triagem baseado em EfficientNet-B3 com mecanismo de atenção CBAM,
+      treinado no dataset APTOS 2019. Alvo de demonstração gratuita via gregretinopatia.com.br.
+    </p>
+    <div class="retino-grid">
+      <div class="retino-info">
+        <h3>EfficientNet-B3 + CBAM Attention</h3>
+        <p>
+          O modelo combina a eficiência paramétrica da família EfficientNet com blocos de
+          atenção convolucional (CBAM) que destacam as regiões da retina mais relevantes
+          para cada grau de severidade — melhorando tanto acurácia quanto interpretabilidade.
+        </p>
+        <p>
+          O pipeline completo cobre download de dados, treinamento com GREG, avaliação
+          detalhada e servimento via FastAPI — pronto para integração com sistemas de saúde.
+        </p>
+        <div class="tag-row">
+          <span class="tag green">EfficientNet-B3</span>
+          <span class="tag green">CBAM</span>
+          <span class="tag cyan">APTOS 2019</span>
+          <span class="tag cyan">FastAPI</span>
+          <span class="tag amber">GREG Controller</span>
+          <span class="tag">5 classes</span>
+          <span class="tag">Grading 0–4</span>
         </div>
-    </footer>
+      </div>
+      <div class="retino-metrics">
+        <!-- Substitua os valores pelas suas métricas reais -->
+        <div class="metric-bar">
+          <div class="metric-bar-header">
+            <span class="metric-bar-name">Acurácia Geral</span>
+            <span class="metric-bar-val">92%</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width:92%"></div></div>
+        </div>
+        <div class="metric-bar">
+          <div class="metric-bar-header">
+            <span class="metric-bar-name">Quadratic Weighted Kappa</span>
+            <span class="metric-bar-val"> QWK 0,63 </span>
+          </div>
+          <div class="bar-track"><div class="bar-fill cyan" style="width:63%"></div></div>
+        </div>
+        <div class="metric-bar">
+          <div class="metric-bar-header">
+            <span class="metric-bar-name">AUC-ROC (macro)</span>
+            <span class="metric-bar-val">79,69%</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill amber" style="width:79.69%"></div></div>
+        </div>
+        <div class="metric-bar">
+          <div class="metric-bar-header">
+            <span class="metric-bar-name">Sensibilidade (Grau ≥ 2)</span>
+            <span class="metric-bar-val">80</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width:80%"></div></div>
+        </div>
 
-    <!-- Botão Flutuante Fixo -->
-    <a href="https://wa.me/5534993506019?text=Ol%C3%A1!%20Tenho%20interesse%20no%20Minha%20Casa%20Minha%20Vida." class="float-whatsapp" target="_blank" aria-label="Falar no WhatsApp">
-        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-    </a>
+        <div class="plots-grid" style="margin-top:8px">
+          <div class="plot-card">
+            <div class="plot-placeholder" style="aspect-ratio:1/1">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+              <span>CONFUSION</span>
+              <span style="font-size:9px;color:var(--muted)"><img src="plots_v3/confusion_matrix.png"></span>
+            </div>
+            <div class="plot-footer">Matriz de confusão 5 classes</div>
+          </div>
+          <div class="plot-card">
+            <div class="plot-placeholder" style="aspect-ratio:1/1">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              <span>GRAD-CAM</span>
+              <span style="font-size:9px;color:var(--muted)"><img src="plots_v3/gradcam_02_true2_pred2.png"></span>
+            </div>
+            <div class="plot-footer">Mapa de atenção Grad-CAM</div>
+          </div>
+          
+        </div>
+         <div class="plots-grid" style="margin-top:8px">
+          <div class="plot-card">
+            <div class="plot-placeholder" style="aspect-ratio:1/1">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+              <span>CONFUSION</span>
+              <span style="font-size:9px;color:var(--muted)"><img src="plots_v3/gradcam_05_true2_pred2.png"></span>
+            </div>
+            <div class="plot-footer">Mapa de atenção Grad-CAM</div>
+          </div>
+          
+      </div>
+      
+    </div>
+  </div>
+</div>
+<hr class="divider" />
 
-    <script>
-        // Função para redirecionar o formulário para o seu WhatsApp
-        function redirectToWhatsapp(event) {
-            event.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const income = document.getElementById('income').value;
+<!-- CONTACT -->
+<section id="contact">
+  <p class="section-label">Colaboração</p>
+  <h2 class="section-title">Vamos conversar</h2>
+  <div class="contact-layout">
+    <div class="contact-left">
+      <p>
+        Se você é pesquisador, gestor de saúde pública, desenvolvedor ou empresa
+        interessada em aplicações de IA clínica — entre em contato.
+        Ofereço demonstrações do sistema de retinopatia e estou aberto a parcerias,
+        projetos de P&D e licenciamento.
+      </p>
+      <div class="contact-channels">
+        <a href="mailto:seu@email.com" class="channel">
+          <span class="channel-icon">✉</span>
+          gostosodminas@gmail.com
+        </a>
+        <a href="https://linkedin.com/in/ruleschaves" target="_blank" class="channel">
+          <span class="channel-icon">in</span>
+          <a href="https://www.linkedin.com/in/julio-cesar-532921374/" target="_blank"></a>
+        </a>
+        <a href="https://github.com/ruleschaves" target="_blank" class="channel">
+          <span class="channel-icon">⌥</span>
+          github.com/ruleschaves 
+          <a href="https://github.com/cejota0071/ruleschaves" target="_blank" style="font-size:9px;color:var(--muted);margin-left:4px;">(repositório)</a>
+        </a>
+      </div>
+    </div>
+    <div>
+      <div class="contact-form" id="contactForm">
+        <div class="field">
+          <label>Nome</label>
+          <input type="text" id="nome" placeholder="Seu nome completo" />
+        </div>
+        <div class="field">
+          <label>E-mail</label>
+          <input type="email" id="email" placeholder="email@instituicao.br" />
+        </div>
+        <div class="field">
+          <label>Interesse</label>
+          <select id="interesse">
+            <option value="">Selecione...</option>
+            <option>Demonstração — GREG Retinopatia</option>
+            <option>Parceria de pesquisa</option>
+            <option>Licenciamento / SaaS</option>
+            <option>Colaboração acadêmica (UFU / SUS)</option>
+            <option>Outro</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Mensagem</label>
+          <textarea id="mensagem" placeholder="Descreva brevemente seu contexto e o que você gostaria de discutir..."></textarea>
+        </div>
+        <button class="btn btn-primary form-submit" onclick="handleSubmit()">Enviar Mensagem</button>
+        <p id="form-status" style="font-family:var(--font-mono);font-size:11px;color:var(--accent);display:none;text-align:center;"></p>
+      </div>
+    </div>
+  </div>
+</section>
 
-            // Monta a mensagem automática
-            const message = `Olá! Me chamo ${name}.%0A%0AMeu telefone é: ${phone}.%0A%0AMinha renda familiar é: ${income}.%0A%0AGostaria de verificar minha elegibilidade para o Minha Casa Minha Vida em Uberlândia.`;
-            
-            // Redireciona direto para o seu número (34) 9 3505-6019
-            const whatsappUrl = `https://wa.me/5534993506019?text=${message}`;
-            
-            window.open(whatsappUrl, '_blank');
-        }
-    </script>
+<!-- FOOTER -->
+<footer>
+  <p>© 2024 Rules Chaves — <span>ruleschaves.online</span></p>
+  <p style="color:var(--muted)">Deep Learning · Uberlândia, MG · Brasil</p>
+</footer>
+
+<script>
+  /* Bar fill animation on scroll */
+  const bars = document.querySelectorAll('.bar-fill');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const w = e.target.dataset.width;
+        if (w) e.target.style.width = w + '%';
+      }
+    });
+  }, { threshold: 0.3 });
+  bars.forEach(b => obs.observe(b));
+
+  /* Simple form handler — substitua pelo seu backend / Formspree / EmailJS */
+  function handleSubmit() {
+    const nome      = document.getElementById('nome').value.trim();
+    const email     = document.getElementById('email').value.trim();
+    const interesse = document.getElementById('interesse').value;
+    const mensagem  = document.getElementById('mensagem').value.trim();
+    const status    = document.getElementById('form-status');
+
+    if (!nome || !email || !interesse || !mensagem) {
+      status.style.color = 'var(--danger)';
+      status.textContent = '⚠ Preencha todos os campos.';
+      status.style.display = 'block';
+      return;
+    }
+
+    /* Aqui você integra com Formspree, EmailJS ou seu backend */
+    status.style.color = 'var(--accent)';
+    status.textContent = '✓ Mensagem recebida. Responderei em breve.';
+    status.style.display = 'block';
+
+    document.getElementById('nome').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('interesse').value = '';
+    document.getElementById('mensagem').value = '';
+  }
+</script>
 </body>
 </html>
